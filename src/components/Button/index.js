@@ -20,6 +20,7 @@ function Button({
     leftIcon,
     rightIcon,
     className,
+    fontFamily,
     ...passProps
 }) {
     let Comp = 'button';

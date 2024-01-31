@@ -2,31 +2,24 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
-    faCircleXmark,
     faCloudUpload,
     faCoins,
     faEarthAmerica,
     faEllipsisVertical,
     faGear,
     faKeyboard,
-    faMagnifyingGlass,
-    faMessage,
     faSignOut,
-    faSpinner,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
-import HeadLessTippy from '@tippyjs/react/headless';
-import { useEffect, useState } from 'react';
 import 'tippy.js/dist/tippy.css';
 
 import Button from '~/components/Button';
 import images from '~/assets/images';
 import styles from './Header.module.scss';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
-
+import Image from '~/components/Images';
+import Search from '../Search';
 const cx = classNames.bind(styles);
 const currentUser = true;
 
@@ -62,13 +55,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const [searchResult, setSearchResult] = useState([]);
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2, 3]);
-        }, 0);
-    });
-
     // handle logic
     const handleMenuChange = (menuItem) => {
         console.log(menuItem);
@@ -105,34 +91,8 @@ function Header() {
                 <div className={cx('logo')}>
                     <img src={images.logo} alt="tiktok" />
                 </div>
-
-                <HeadLessTippy
-                    interactive
-                    visible={searchResult.length > 0}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex={-1} {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Accounts</h4>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input placeholder="Tìm kiếm" spellCheck={false}></input>
-                        <button className={cx('search-clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        <FontAwesomeIcon className={cx('search-loading')} icon={faSpinner} />
-
-                        <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </HeadLessTippy>
-
+                {/* components search  */}
+                <Search />
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
@@ -151,10 +111,11 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
-                                src="https://scontent.fsgn5-3.fna.fbcdn.net/v/t39.30808-1/405274836_122116165610090411_6251687289730396683_n.jpg?stp=dst-jpg_p100x100&_nc_cat=104&ccb=1-7&_nc_sid=5740b7&_nc_ohc=c-XzeYBcMvgAX_BfrsH&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fsgn5-3.fna&oh=00_AfCSdtsl0p8_8wt3jggYRqNWKwVo1MvHEX98tSmv6YmGFg&oe=65A42FD9"
+                                src="https://scontent.fsgn5-3.fna.fbcdn.net/v/t39.30808-1/405274836_122116165610090411_625168728730396683_n.jpg?stp=dst-jpg_p100x100&_nc_cat=104&ccb=1-7&_nc_sid=5740b7&_nc_eui2=AeEQbaGmd9_S9wbOi6780SauHLQ-V5B4xUMctD5XkHjFQzksBhOwp381qksKL0H-xpCyTOiBctyIDukTiav9vLij&_nc_ohc=HRPhHM_lLTYAX8FDosY&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fsgn5-3.fna&oh=00_AfBJ_leiuqEixXQHcMwAsnZiMWnf_6pug5sisVE2_7an7g&oe=65BDE519"
                                 alt="UserName"
+                                fallback="https://scontent.fsgn5-3.fna.fbcdn.net/v/t39.30808-1/405274836_122116165610090411_6251687289730396683_n.jpg?stp=dst-jpg_p100x100&_nc_cat=104&ccb=1-7&_nc_sid=5740b7&_nc_eui2=AeEQbaGmd9_S9wbOi6780SauHLQ-V5B4xUMctD5XkHjFQzksBhOwp381qksKL0H-xpCyTOiBctyIDukTiav9vLij&_nc_ohc=HRPhHM_lLTYAX8FDosY&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fsgn5-3.fna&oh=00_AfBJ_leiuqEixXQHcMwAsnZiMWnf_6pug5sisVE2_7an7g&oe=65BDE519"
                             />
                         ) : (
                             <button className={cx('more-btn')}>

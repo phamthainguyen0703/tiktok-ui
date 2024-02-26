@@ -13,7 +13,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
+import routesConfig from '~/config/routes';
 import Button from '~/components/Button';
 import images from '~/assets/images';
 import styles from './Header.module.scss';
@@ -34,6 +36,101 @@ const MENU_ITEMS = [
                     type: 'language',
                     code: 'en',
                     title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
                 },
                 {
                     type: 'language',
@@ -88,9 +185,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home} className={cx('logo')}>
                     <img src={images.logo} alt="tiktok" />
-                </div>
+                </Link>
                 {/* components search  */}
                 <Search />
                 <div className={cx('actions')}>

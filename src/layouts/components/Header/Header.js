@@ -7,7 +7,9 @@ import {
     faEarthAmerica,
     faEllipsisVertical,
     faGear,
+    faInbox,
     faKeyboard,
+    faMessage,
     faSignOut,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
@@ -199,6 +201,16 @@ function Header() {
                                     <FontAwesomeIcon icon={faCloudUpload} />
                                 </button>
                             </Tippy>
+                            <Tippy delay={[0, 50]} content="Message" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <FontAwesomeIcon icon={faMessage} />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <FontAwesomeIcon icon={faInbox} />
+                                </button>
+                            </Tippy>
                         </>
                     ) : (
                         <>
@@ -211,9 +223,8 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://scontent.fsgn5-3.fna.fbcdn.net/v/t39.30808-1/405274836_122116165610090411_625168728730396683_n.jpg?stp=dst-jpg_p100x100&_nc_cat=104&ccb=1-7&_nc_sid=5740b7&_nc_eui2=AeEQbaGmd9_S9wbOi6780SauHLQ-V5B4xUMctD5XkHjFQzksBhOwp381qksKL0H-xpCyTOiBctyIDukTiav9vLij&_nc_ohc=HRPhHM_lLTYAX8FDosY&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fsgn5-3.fna&oh=00_AfBJ_leiuqEixXQHcMwAsnZiMWnf_6pug5sisVE2_7an7g&oe=65BDE519"
-                                alt="UserName"
-                                fallback="https://scontent.fsgn5-3.fna.fbcdn.net/v/t39.30808-1/405274836_122116165610090411_6251687289730396683_n.jpg?stp=dst-jpg_p100x100&_nc_cat=104&ccb=1-7&_nc_sid=5740b7&_nc_eui2=AeEQbaGmd9_S9wbOi6780SauHLQ-V5B4xUMctD5XkHjFQzksBhOwp381qksKL0H-xpCyTOiBctyIDukTiav9vLij&_nc_ohc=HRPhHM_lLTYAX8FDosY&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fsgn5-3.fna&oh=00_AfBJ_leiuqEixXQHcMwAsnZiMWnf_6pug5sisVE2_7an7g&oe=65BDE519"
+                                src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
+                                alt="Nguyen Van A"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
